@@ -8,6 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  base: "/portfolio/",
   build: {
     outDir: 'docs',
     emptyOutDir: true
