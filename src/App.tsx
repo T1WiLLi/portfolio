@@ -1,5 +1,5 @@
 import About from "./sections/About"
-import Landing from "./sections/landing"
+import Landing from "./sections/Landing"
 import Projects from "./sections/Projects"
 
 function App() {
