@@ -9,7 +9,7 @@ export default defineConfig({
     tailwindcss()
   ],
   build: {
-    outDir: 'root',
+    outDir: 'docs',
     emptyOutDir: true
   }
 })
