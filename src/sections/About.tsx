@@ -6,18 +6,18 @@ function About() {
 
     const experiences = [
         {
+            title: "Développeur Stagiaire .NET ASP Core Chez Descartes System Group",
+            period: "Mai 2025 - Présent",
+            description: "Participation au développement de solutions logicielles robustes en .NET ASP Core, collaboration avec des équipes multidisciplinaires et contribution à l'amélioration continue des processus de développement."
+        },
+        {
             title: "Créateur de Jolt",
-            period: "2025 - Présent",
+            period: "Février 2025 - Présent",
             description: "Développement du framework pour concevoir, implémenter et tester des applications Web (Rest, GraphQL, API, etc.)",
         },
         {
-            title: "Développeur .NET Core Chez Descartes System Group",
-            period: "2025 - Présent",
-            description: "Participation au développement de solutions logicielles robustes en .NET Core, collaboration avec des équipes multidisciplinaires et contribution à l'amélioration continue des processus de développement."
-        },
-        {
             title: "Étudiant - Cégep",
-            period: "2022 - Présent",
+            period: "Août 2022 - Présent",
             description: "Études en informatique au Cégep de Sorel-Tracy, spécialisation en développement web et technologies modernes."
         }
     ];
