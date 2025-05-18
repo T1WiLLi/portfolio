@@ -134,7 +134,7 @@ function About() {
                             animate={isImageInView ? "visible" : "hidden"}
                         >
                             <img
-                                src="/images/William_black.jpg"
+                                src="/portfolio/images/William_black.jpg"
                                 alt="William Beaudin"
                                 className="w-full h-auto rounded-xl shadow-lg"
                             />

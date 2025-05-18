@@ -27,13 +27,13 @@ function Projects() {
             subtitle: "Framework de développement web moderne.",
             description: "Jolt est un framework Java léger conçu pour simplifier la création d'API REST, avec injection de dépendances, routage avancé, filtres personnalisables et sécurité intégrée pour bâtir des applications performantes et modulaires.",
             extendedDescription: "Jolt a été conçu comme une alternative légère aux frameworks Spring et Jakarta EE, se concentrant sur la simplicité tout en offrant des fonctionnalités puissantes. Il utilise un système d'annotations pour minimiser la configuration et permet aux développeurs de créer rapidement des API REST avec une syntaxe intuitive. Jolt prend également en charge GraphQL nativement, offrant une flexibilité maximale pour les clients qui consomment l'API.",
-            image: "/images/jolt.png",
+            image: "/portfolio/images/jolt.png",
             techStack: ["Java", "Framework", "API REST", "GraphQL"],
             githubLink: "https://github.com/T1WiLLi/Jolt/",
             color: "from-blue-500 to-indigo-600",
             screenshots: [
-                "/images/jolt_1.png",
-                "/images/jolt_2.png"
+                "/portfolio/images/jolt_1.png",
+                "/portfolio/images/jolt_2.png"
             ],
             features: [
                 "Injection de dépendances légère",
@@ -49,13 +49,13 @@ function Projects() {
             subtitle: "Jeu multijoueur 2D en Java.",
             description: "PewPewSmash (PPS) est un jeu Java 2D multijoueur en temps réel, combinant génération procédurale de mondes et système de combat varié, basé sur Kryonet pour un réseau fluide et un hébergement de serveur simplifié.",
             extendedDescription: "PewPewSmash est né de ma passion pour le développement de jeux et les expériences multijoueur. Le jeu utilise une architecture client-serveur avec synchronisation d'état optimisée pour minimiser la latence. Les mondes générés procéduralement garantissent que chaque partie est unique, avec différents obstacles, ressources et zones de combat. Le système de combat permet aux joueurs de collecter différentes armes, chacune avec ses propres mécaniques et effets spéciaux.",
-            image: "/images/pps.png",
+            image: "/portfolio/images/pps.png",
             techStack: ["Java", "Multijoueur en ligne", "Game Dev", "Graphiques 2D"],
             githubLink: "https://github.com/T1WiLLi/PPS/",
             color: "from-emerald-500 to-teal-700",
             screenshots: [
-                "/images/pps_1.png",
-                "/images/pps_2.png"
+                "/portfolio/images/pps_1.png",
+                "/portfolio/images/pps_2.png"
             ],
             features: [
                 "Multijoueur en temps réel jusqu'à 16 joueurs",
@@ -71,13 +71,13 @@ function Projects() {
             subtitle: "Application pour la gestion des mots de passe.",
             description: "Gestionnaire de mots de passe axé cybersécurité : chiffrement solide (AES-256), prise en charge de la triade CIA (confidentialité, intégrité, disponibilité) et authentification multifactorielle (TOTP, email, SMS) pour protéger vos données sensibles.",
             extendedDescription: "Ce gestionnaire de mots de passe a été développé avec la sécurité comme priorité absolue. Chaque mot de passe est chiffré individuellement avec AES-256 avant d'être stocké dans la base de données. L'application utilise un système de dérivation de clé basé sur PBKDF2 avec un grand nombre d'itérations pour protéger la clé maître. L'authentification multifactorielle offre une couche de protection supplémentaire, avec support pour TOTP, codes par email et SMS. L'application inclut également un générateur de mots de passe avancé et un système d'audit pour détecter les mots de passe faibles ou réutilisés.",
-            image: "/images/pm.png",
+            image: "/portfolio/images/pm.png",
             techStack: ["PHP", "Zephyrus", "Sécurité", "Chiffrement", "Web"],
             githubLink: "https://github.com/T1WiLLi/Password-Manager/",
             color: "from-purple-500 to-violet-700",
             screenshots: [
-                "/images/pm_1.png",
-                "/images/pm_2.png"
+                "/portfolio/images/pm_1.png",
+                "/portfolio/images/pm_2.png"
             ],
             features: [
                 "Chiffrement AES-256 pour tous les mots de passe",
