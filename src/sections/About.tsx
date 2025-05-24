@@ -6,14 +6,14 @@ function About() {
 
     const experiences = [
         {
-            title: "Développeur Stagiaire .NET ASP Core Chez Descartes System Group",
+            title: "Développeur .NET Core Chez Descartes System Group",
             period: "Mai 2025 - Présent",
-            description: "Participation au développement de solutions logicielles robustes en .NET ASP Core, collaboration avec des équipes multidisciplinaires et contribution à l'amélioration continue des processus de développement."
+            description: "Participation au développement de solutions logicielles robustes en .NET Core, collaboration avec des équipes multidisciplinaires et contribution à l'amélioration continue des processus de développement."
         },
         {
-            title: "Créateur de Jolt",
-            period: "Février 2025 - Présent",
-            description: "Développement du framework pour concevoir, implémenter et tester des applications Web (Rest, GraphQL, API, etc.)",
+            title: "Création de Jolt",
+            period: "Janvier 2025 - Présent",
+            description: "Développement d'un framework pour concevoir, implémenter et tester des applications Web (Rest, GraphQL, API, etc.)",
         },
         {
             title: "Étudiant - Cégep",
@@ -22,38 +22,12 @@ function About() {
         }
     ];
 
-    const technologies = [
-        { name: "Java", icon: "devicon-java-plain colored" },
-        { name: "TypeScript", icon: "devicon-typescript-plain colored" },
-        { name: "JavaScript", icon: "devicon-javascript-plain colored" },
-        { name: "C#", icon: "devicon-csharp-plain colored" },
-        { name: "C", icon: "devicon-c-plain colored" },
-        { name: "Swift", icon: "devicon-swift-plain colored" },
-        { name: "PHP", icon: "devicon-php-plain colored" },
-        { name: "HTML5", icon: "devicon-html5-plain colored" },
-        { name: "CSS3", icon: "devicon-css3-plain colored" },
-        { name: "Spring", icon: "devicon-spring-plain colored" },
-        { name: "React", icon: "devicon-react-original colored" },
-        { name: ".NET", icon: "devicon-dotnetcore-plain colored" },
-        { name: "Node.js", icon: "devicon-nodejs-plain colored" },
-        { name: "Bootstrap", icon: "devicon-bootstrap-plain colored" },
-        { name: "PostgreSQL", icon: "devicon-postgresql-plain colored" },
-        { name: "Git", icon: "devicon-git-plain colored" },
-        { name: "Docker", icon: "devicon-docker-plain colored" },
-        { name: "Arduino", icon: "devicon-arduino-plain colored" },
-        { name: "VS Code", icon: "devicon-vscode-plain colored" },
-        { name: "Linux", icon: "devicon-linux-plain colored" }
-    ];
-
     // Refs pour les sections à animer au scroll
     const introSectionRef = useRef(null);
     const isIntroInView = useInView(introSectionRef, { once: true, amount: 0.2 });
 
     const imageRef = useRef(null);
     const isImageInView = useInView(imageRef, { once: true, amount: 0.5 });
-
-    const techStackRef = useRef(null);
-    const isTechStackInView = useInView(techStackRef, { once: true, amount: 0.1 });
 
     const experienceSectionRef = useRef(null);
     const isExperienceInView = useInView(experienceSectionRef, { once: true, amount: 0.2 });
@@ -76,18 +50,6 @@ function About() {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1
-            }
-        }
-    };
-
-    const techItemVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                duration: 0.5,
-                ease: "easeOut"
             }
         }
     };
@@ -159,49 +121,41 @@ function About() {
                                 variants={fadeInUpVariants}
                                 className="text-base sm:text-lg text-gray-300 leading-relaxed"
                             >
-                                Développeur passionné spécialisé dans la création d'applications web modernes et d'expériences numériques interactives. Mon objectif est de combiner des interfaces élégantes avec des performances optimales.
+                                Bonjour ! Je suis un développeur passionné de <span className="text-blue-400 font-semibold">20 ans</span> du Canada, actuellement étudiant en <span className="text-purple-400 font-semibold">Développement Web et Mobile</span> au Cégep de Sorel-Tracy. Pour moi, le code n'est pas seulement un travail - c'est un art et ma véritable passion.
                             </motion.p>
+
+                            <motion.div
+                                variants={fadeInUpVariants}
+                                className="bg-gradient-to-r from-gray-800/50 to-gray-700/50 p-6 rounded-xl border border-gray-600/30"
+                            >
+                                <h3 className="text-xl font-semibold text-white mb-3 flex items-center">
+                                    <span className="mr-2">🎯</span> Philosophie de développement
+                                </h3>
+                                <p className="text-gray-300 leading-relaxed">
+                                    Je privilégie les technologies éprouvées et <span className="text-yellow-400 font-medium">battle-tested</span> plutôt que de suivre aveuglément les dernières tendances. Mon approche se concentre sur la stabilité, la performance et l'élégance du code. J'ai une affection particulière pour les bonnes vieilles technologies qui ont fait leurs preuves.
+                                </p>
+                            </motion.div>
 
                             <motion.p
                                 variants={fadeInUpVariants}
                                 className="text-base sm:text-lg text-gray-300 leading-relaxed"
                             >
-                                Actuellement étudiant au Cégep de Sorel-Tracy, je me concentre sur l'approfondissement de mes compétences techniques tout en travaillant sur des projets personnels comme Jolt, un framework minimaliste en Java.
+                                Actuellement, je travaille en tant que stagiaire chez <span className="text-blue-400 font-semibold">Descartes</span>, où je développe des solutions web en <span className="text-yellow-400 font-medium">backend</span> avec <span className="text-purple-400 font-semibold">ASP.NET</span>.
+
+                                Cette expérience me permet de perfectionner mes compétences et de progresser vers mon objectif : devenir un ingénieur <span className="text-pink-400 font-medium">full-stack</span> accompli.
+
+                                Je cherche à allier des interfaces élégantes à des performances optimales et une architecture solide, tout en explorant les meilleures pratiques du développement web.
                             </motion.p>
-                        </motion.div>
 
-                        <div ref={techStackRef} className="mt-8">
                             <motion.div
-                                variants={staggerContainerVariants}
-                                initial="hidden"
-                                animate={isTechStackInView ? "visible" : "hidden"}
+                                variants={fadeInUpVariants}
+                                className="text-center pt-4"
                             >
-                                <motion.h3
-                                    variants={fadeInUpVariants}
-                                    className="text-lg sm:text-xl font-semibold mb-4 text-gray-200"
-                                >
-                                    Tech Stack
-                                </motion.h3>
-
-                                <motion.div
-                                    className="flex flex-wrap gap-3 sm:gap-5 mb-8"
-                                    variants={staggerContainerVariants}
-                                >
-                                    {technologies.map((tech, index) => (
-                                        <motion.div
-                                            key={index}
-                                            className="flex flex-col items-center"
-                                            variants={techItemVariants}
-                                            whileHover={{ y: -5, scale: 1.1 }}
-                                            transition={{ type: "spring", stiffness: 400 }}
-                                        >
-                                            <i className={`${tech.icon} text-2xl sm:text-3xl mb-2`}></i>
-                                            <span className="text-xs text-gray-400">{tech.name}</span>
-                                        </motion.div>
-                                    ))}
-                                </motion.div>
+                                <p className="text-gray-400 italic">
+                                    "Toujours avide d'apprendre et de collaborer sur des projets passionnants !"
+                                </p>
                             </motion.div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
