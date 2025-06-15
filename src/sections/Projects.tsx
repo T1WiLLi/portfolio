@@ -85,6 +85,28 @@ function Projects() {
                 "Audit automatique des mots de passe faibles",
                 "Synchronisation multi-appareils sécurisée"
             ]
+        },
+        {
+            id: 4,
+            title: "Gitnar",
+            subtitle: "Outil de synchronisation des issues SonarCloud vers GitHub.",
+            description: "Gitnar est un outil de synchronisation qui permet de transférer les issues de SonarCloud vers GitHub, en utilisant l'API de GitHub pour créer des issues correspondantes et en synchronisant les états des issues entre les deux plateformes. Et plus encore !",
+            extendedDescription: "Gitnar propose des fonctionnalités avancées pour la synchronisation des issues entre SonarCloud et GitHub. Utilisant la connexion OAuth2 pour se connecter à github et un token sécuritaire de SonarCloud, l'outil permet d'exporter les issues de Sonarcloud vers Github. Les issues sont créées avec les mêmes états et les mêmes commentaires, et les changements sont synchronisés en temps réel. L'outil est également capable de gérer les issues déjà existantes sur GitHub, en les mettant à jour en fonction des changements sur SonarCloud. Un système simplifié de Workflows permet de configurer les synchronisations en fonction des besoins spécifiques de votre projet.",
+            image: "/portfolio/images/gitnar.png",
+            techStack: ["Dart", "Flutter", "GitHub", "SonarCloud", "Desktop", "OAuth2"],
+            githubLink: "https://github.com/T1WiLLi/Gitnar/",
+            color: "from-blue-500 to-indigo-700",
+            screenshots: [
+                "/portfolio/images/gitnar_1.png",
+                "/portfolio/images/gitnar_2.png"
+            ],
+            features: [
+                "Exportation des issues de SonarCloud vers GitHub",
+                "Création automatiques des issues sur GitHub",
+                "Centre d'analyse avancé combinant les données de SonarCloud et GitHub",
+                "Prise en main simplifiée convenant à une petite équipe ou un projet personnel",
+                "Système de Workflows pour configurer les synchronisations sans effort"
+            ]
         }
     ]);
 
