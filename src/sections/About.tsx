@@ -6,6 +6,11 @@ function About() {
 
     const experiences = [
         {
+            title: "Conception de l'application Gitnar",
+            period: "Juin 2025 - Présent",
+            description: "Création d'une application d'exportation des issues Sonar vers Github, permettant une meilleure gestion des tâches et des bugs dans les projets de développement.",
+        },
+        {
             title: "Développeur .NET Core Chez Descartes System Group",
             period: "Mai 2025 - Présent",
             description: "Participation au développement de solutions logicielles robustes en .NET Core, collaboration avec des équipes multidisciplinaires et contribution à l'amélioration continue des processus de développement."

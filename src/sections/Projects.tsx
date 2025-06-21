@@ -233,13 +233,20 @@ function Projects() {
                                     className={`${selectedProject && selectedProject.id !== project.id ? "opacity-50" : "opacity-100"}`}
                                 >
                                     <motion.div
-                                        className="bg-gray-800 rounded-xl overflow-hidden border border-gray-600 shadow-lg flex flex-col h-full cursor-pointer"
+                                        className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-600 shadow-lg flex flex-col h-full cursor-pointer"
                                         variants={projectCardVariants}
                                         initial="hidden"
                                         animate={projectInView[index] ? "visible" : "hidden"}
                                         onClick={() => setSelectedProject(project)}
                                         whileTap={{ scale: 0.98 }}
                                     >
+                                        {project.id === 1 && (
+                                            <div className="absolute top-2 right-0 -mr-8 overflow-visible">
+                                                <div className="rotate-45 bg-pink-500 text-white text-xs font-bold px-3 py-1 shadow-lg">
+                                                    Coup de cœur &lt;3
+                                                </div>
+                                            </div>
+                                        )}
                                         <div className="w-full h-36 relative">
                                             <img
                                                 src={project.image}
@@ -406,13 +413,20 @@ function Projects() {
                                 ref={projectRefs[index]}
                             >
                                 <motion.div
-                                    className="bg-gray-800 rounded-xl overflow-hidden border border-gray-600 shadow-lg flex flex-col h-full cursor-pointer"
+                                    className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-600 shadow-lg flex flex-col h-full cursor-pointer"
                                     variants={projectCardVariants}
                                     initial="hidden"
                                     animate={projectInView[index] ? "visible" : "hidden"}
                                     onClick={() => setSelectedProject(project)}
                                     whileTap={{ scale: 0.98 }}
                                 >
+                                    {project.id === 1 && (
+                                        <div className="absolute top-4 right-0 -mr-8 overflow-visible">
+                                            <div className="rotate-37 bg-pink-800 text-white text-xs font-bold px-6 py-2 shadow-lg">
+                                                Coup de cœur &lt;3
+                                            </div>
+                                        </div>
+                                    )}
                                     <div className="w-full h-52 relative">
                                         <img
                                             src={project.image}
