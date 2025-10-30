@@ -1,131 +1,50 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import { projects, type Project } from "../configuration/Projet";
 
 function Projects() {
-    type Project = {
-        id: number;
-        title: string;
-        subtitle: string;
-        description: string;
-        extendedDescription: string;
-        image: string;
-        techStack: string[];
-        githubLink: string;
-        color: string;
-        screenshots: string[];
-        features: string[];
-    };
 
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [expandedImage, setExpandedImage] = useState<string | null>(null);
 
-    const [projects] = useState<Project[]>([
-        {
-            id: 1,
-            title: "Jolt",
-            subtitle: "Framework de développement web moderne.",
-            description: "Jolt est un framework Java léger conçu pour simplifier la création d'API REST, avec injection de dépendances, routage avancé, filtres personnalisables et sécurité intégrée pour bâtir des applications performantes et modulaires.",
-            extendedDescription: "Jolt a été conçu comme une alternative légère aux frameworks Spring et Jakarta EE, se concentrant sur la simplicité tout en offrant des fonctionnalités puissantes. Il utilise un système d'annotations pour minimiser la configuration et permet aux développeurs de créer rapidement des API REST avec une syntaxe intuitive. Jolt prend également en charge GraphQL nativement, offrant une flexibilité maximale pour les clients qui consomment l'API.",
-            image: "/portfolio/images/jolt.png",
-            techStack: ["Java", "Framework", "API REST", "GraphQL"],
-            githubLink: "https://github.com/T1WiLLi/Jolt/",
-            color: "from-blue-500 to-indigo-600",
-            screenshots: [
-                "/portfolio/images/jolt_1.png",
-                "/portfolio/images/jolt_2.png"
-            ],
-            features: [
-                "Injection de dépendances légère",
-                "Routage automatique basé sur les annotations",
-                "Support complet pour REST et GraphQL",
-                "Sécurité intégrée et personnalisable",
-                "Configuration minimale requise"
-            ]
-        },
-        {
-            id: 2,
-            title: "PPS",
-            subtitle: "Jeu multijoueur 2D en Java.",
-            description: "PewPewSmash (PPS) est un jeu Java 2D multijoueur en temps réel, combinant génération procédurale de mondes et système de combat varié, basé sur Kryonet pour un réseau fluide et un hébergement de serveur simplifié.",
-            extendedDescription: "PewPewSmash est né de ma passion pour le développement de jeux et les expériences multijoueur. Le jeu utilise une architecture client-serveur avec synchronisation d'état optimisée pour minimiser la latence. Les mondes générés procéduralement garantissent que chaque partie est unique, avec différents obstacles, ressources et zones de combat. Le système de combat permet aux joueurs de collecter différentes armes, chacune avec ses propres mécaniques et effets spéciaux.",
-            image: "/portfolio/images/pps.png",
-            techStack: ["Java", "Multijoueur en ligne", "Game Dev", "Graphiques 2D"],
-            githubLink: "https://github.com/T1WiLLi/PPS/",
-            color: "from-emerald-500 to-teal-700",
-            screenshots: [
-                "/portfolio/images/pps_1.png",
-                "/portfolio/images/pps_2.png"
-            ],
-            features: [
-                "Multijoueur en temps réel jusqu'à 16 joueurs",
-                "Génération procédurale de niveaux",
-                "Système de combat dynamique avec différentes armes",
-                "Effets visuels et sonores immersifs",
-                "Mode spectateur et tableau des scores"
-            ]
-        },
-        {
-            id: 3,
-            title: "Gestionnaire de mots de passe",
-            subtitle: "Application pour la gestion des mots de passe.",
-            description: "Gestionnaire de mots de passe axé cybersécurité : chiffrement solide (AES-256), prise en charge de la triade CIA (confidentialité, intégrité, disponibilité) et authentification multifactorielle (TOTP, email, SMS) pour protéger vos données sensibles.",
-            extendedDescription: "Ce gestionnaire de mots de passe a été développé avec la sécurité comme priorité absolue. Chaque mot de passe est chiffré individuellement avec AES-256 avant d'être stocké dans la base de données. L'application utilise un système de dérivation de clé basé sur PBKDF2 avec un grand nombre d'itérations pour protéger la clé maître. L'authentification multifactorielle offre une couche de protection supplémentaire, avec support pour TOTP, codes par email et SMS. L'application inclut également un générateur de mots de passe avancé et un système d'audit pour détecter les mots de passe faibles ou réutilisés.",
-            image: "/portfolio/images/pm.png",
-            techStack: ["PHP", "Zephyrus", "Sécurité", "Chiffrement", "Web"],
-            githubLink: "https://github.com/T1WiLLi/Password-Manager/",
-            color: "from-purple-500 to-violet-700",
-            screenshots: [
-                "/portfolio/images/pm_1.png",
-                "/portfolio/images/pm_2.png"
-            ],
-            features: [
-                "Chiffrement AES-256 pour tous les mots de passe",
-                "Authentification multifactorielle (TOTP, email, SMS)",
-                "Générateur de mots de passe sécurisés",
-                "Audit automatique des mots de passe faibles",
-                "Synchronisation multi-appareils sécurisée"
-            ]
-        },
-        {
-            id: 4,
-            title: "Gitnar",
-            subtitle: "Outil de synchronisation des issues SonarCloud vers GitHub.",
-            description: "Gitnar est un outil de synchronisation qui permet de transférer les issues de SonarCloud vers GitHub, en utilisant l'API de GitHub pour créer des issues correspondantes et en synchronisant les états des issues entre les deux plateformes. Et plus encore !",
-            extendedDescription: "Gitnar propose des fonctionnalités avancées pour la synchronisation des issues entre SonarCloud et GitHub. Utilisant la connexion OAuth2 pour se connecter à github et un token sécuritaire de SonarCloud, l'outil permet d'exporter les issues de Sonarcloud vers Github. Les issues sont créées avec les mêmes états et les mêmes commentaires, et les changements sont synchronisés en temps réel. L'outil est également capable de gérer les issues déjà existantes sur GitHub, en les mettant à jour en fonction des changements sur SonarCloud. Un système simplifié de Workflows permet de configurer les synchronisations en fonction des besoins spécifiques de votre projet.",
-            image: "/portfolio/images/gitnar.png",
-            techStack: ["Dart", "Flutter", "GitHub", "SonarCloud", "Desktop", "OAuth2"],
-            githubLink: "https://github.com/T1WiLLi/Gitnar/",
-            color: "from-blue-500 to-indigo-700",
-            screenshots: [
-                "/portfolio/images/gitnar_1.png",
-                "/portfolio/images/gitnar_2.png"
-            ],
-            features: [
-                "Exportation des issues de SonarCloud vers GitHub",
-                "Création automatiques des issues sur GitHub",
-                "Centre d'analyse avancé combinant les données de SonarCloud et GitHub",
-                "Prise en main simplifiée convenant à une petite équipe ou un projet personnel",
-                "Système de Workflows pour configurer les synchronisations sans effort"
-            ]
-        }
-    ]);
-
     const headerRef = useRef(null);
     const isHeaderInView = useInView(headerRef, { once: true, amount: 0.2 });
 
-    const projectRefs = projects.map(() => useRef(null));
-    const projectInView = projectRefs.map(ref => useInView(ref, { once: true, amount: 0.2 }));
+    const projectRefs = useRef<(HTMLDivElement | null)[]>([]);
+    const [visibleProjects, setVisibleProjects] = useState<boolean[]>(
+        Array(projects.length).fill(false)
+    );
+
+    useEffect(() => {
+        const observers: IntersectionObserver[] = [];
+
+        projectRefs.current.forEach((ref, index) => {
+            if (!ref) return;
+
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setVisibleProjects(prev => {
+                            const updated = [...prev];
+                            updated[index] = true;
+                            return updated;
+                        });
+                        observer.disconnect();
+                    }
+                },
+                { threshold: 0.2 }
+            );
+
+            observer.observe(ref);
+            observers.push(observer);
+        });
+
+        return () => observers.forEach(obs => obs.disconnect());
+    }, []);
 
     const headerVariants = {
         hidden: { opacity: 0, y: -20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                ease: "easeOut"
-            }
-        }
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
     };
 
     const projectCardVariants = {
@@ -133,10 +52,7 @@ function Projects() {
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                duration: 0.8,
-                ease: [0.2, 0.65, 0.3, 0.9]
-            }
+            transition: { duration: 0.8, ease: [0.2, 0.65, 0.3, 0.9] }
         }
     };
 
@@ -144,10 +60,7 @@ function Projects() {
         hidden: { opacity: 0 },
         visible: (index: number) => ({
             opacity: 1,
-            transition: {
-                delay: 0.1 * index,
-                duration: 0.4
-            }
+            transition: { delay: 0.1 * index, duration: 0.4 }
         })
     };
 
@@ -156,21 +69,11 @@ function Projects() {
         visible: {
             opacity: 1,
             scale: 1,
-            transition: {
-                type: "spring",
-                stiffness: 300,
-                damping: 25
-            }
+            transition: { type: "spring", stiffness: 300, damping: 25 }
         },
-        exit: {
-            opacity: 0,
-            scale: 0.95,
-            transition: {
-                duration: 0.3,
-                ease: "easeInOut"
-            }
-        }
+        exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3, ease: "easeInOut" } }
     };
+
 
     return (
         <div className="bg-gray-900 min-h-screen text-white py-8 sm:py-12 px-4 sm:px-6 md:px-8">
@@ -229,14 +132,14 @@ function Projects() {
                             {projects.map((project, index) => (
                                 <div
                                     key={project.id}
-                                    ref={projectRefs[index]}
+                                    ref={el => { projectRefs.current[index] = el; }}
                                     className={`${selectedProject && selectedProject.id !== project.id ? "opacity-50" : "opacity-100"}`}
                                 >
                                     <motion.div
                                         className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-600 shadow-lg flex flex-col h-full cursor-pointer"
                                         variants={projectCardVariants}
                                         initial="hidden"
-                                        animate={projectInView[index] ? "visible" : "hidden"}
+                                        animate={visibleProjects[index] ? "visible" : "hidden"}
                                         onClick={() => setSelectedProject(project)}
                                         whileTap={{ scale: 0.98 }}
                                     >
@@ -271,7 +174,7 @@ function Projects() {
                                                         variants={techBadgeVariants}
                                                         custom={techIndex}
                                                         initial="hidden"
-                                                        animate={projectInView[index] ? "visible" : "hidden"}
+                                                        animate={visibleProjects[index] ? "visible" : "hidden"}
                                                     >
                                                         {tech}
                                                     </motion.span>
@@ -405,18 +308,17 @@ function Projects() {
                         </AnimatePresence>
                     </div>
                 ) : (
-                    // Grid layout when no project is selected
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
                         {projects.map((project, index) => (
                             <div
                                 key={project.id}
-                                ref={projectRefs[index]}
+                                ref={el => { projectRefs.current[index] = el; }}
                             >
                                 <motion.div
                                     className="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-600 shadow-lg flex flex-col h-full cursor-pointer"
                                     variants={projectCardVariants}
                                     initial="hidden"
-                                    animate={projectInView[index] ? "visible" : "hidden"}
+                                    animate={visibleProjects[index] ? "visible" : "hidden"}
                                     onClick={() => setSelectedProject(project)}
                                     whileTap={{ scale: 0.98 }}
                                 >
@@ -451,7 +353,7 @@ function Projects() {
                                                     variants={techBadgeVariants}
                                                     custom={techIndex}
                                                     initial="hidden"
-                                                    animate={projectInView[index] ? "visible" : "hidden"}
+                                                    animate={visibleProjects[index] ? "visible" : "hidden"}
                                                 >
                                                     {tech}
                                                 </motion.span>
@@ -459,19 +361,6 @@ function Projects() {
                                         </div>
 
                                         <div className="flex gap-3 mt-auto">
-                                            <button
-                                                style={{ cursor: "pointer" }}
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setSelectedProject(project);
-                                                }}
-                                                className={`px-4 py-2 bg-gradient-to-r ${project.color} rounded-lg text-white font-medium text-sm sm:text-base flex items-center gap-2`}
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
-                                                </svg>
-                                                Voir plus
-                                            </button>
                                             <a
                                                 href={project.githubLink}
                                                 target="_blank"
@@ -492,29 +381,6 @@ function Projects() {
                     </div>
                 )}
 
-                <motion.div
-                    className="bg-gradient-to-r from-blue-900/40 to-purple-900/40 backdrop-blur-sm p-6 sm:p-8 rounded-xl border border-blue-700/30 text-center relative overflow-hidden"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1, transition: { duration: 0.7 } }}
-                    viewport={{ once: true, amount: 0.5 }}
-                >
-                    <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
-
-                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 relative z-10 text-white">Vous avez un projet en tête ?</h3>
-                    <p className="text-gray-200 text-sm sm:text-base max-w-2xl mx-auto mb-6 relative z-10">
-                        Je suis toujours à la recherche de nouveaux défis et opportunités de collaboration.
-                        N'hésitez pas à me contacter pour discuter de vos idées.
-                    </p>
-                    <button
-                        className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-medium text-base sm:text-lg flex items-center gap-2 mx-auto text-white"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                        </svg>
-                        Me Contacter
-                    </button>
-                </motion.div>
                 <AnimatePresence>
                     {expandedImage && (
                         <motion.div

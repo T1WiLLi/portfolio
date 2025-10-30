@@ -1,8 +1,8 @@
 import About from "./sections/About"
+import Competence from "./sections/Competence"
 import Footer from "./sections/Footer"
 import Landing from "./sections/Landing"
 import Projects from "./sections/Projects"
-import Stack from "./sections/stack"
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Landing />
       <About />
       <Projects />
-      <Stack />
+      <Competence />
       <Footer />
     </>
   )
